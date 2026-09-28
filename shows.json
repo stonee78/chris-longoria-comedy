@@ -1,4 +1,17 @@
 {
-  "updated": "2026-09-27",
-  "shows": []
+  "updated": "2026-09-28",
+  "shows": [
+    {
+      "date": "2026-10-24",
+      "time": "20:30",
+      "doors": "20:00",
+      "utc_offset": "-05:00",
+      "title": "Kill Tony Killers at The Parish",
+      "presenter": "BFR Productions",
+      "venue": "The Parish",
+      "address": "1624 Buena Vista St.",
+      "city": "San Antonio, TX",
+      "tickets": "https://bfrproductions.com/comedy"
+    }
+  ]
 }

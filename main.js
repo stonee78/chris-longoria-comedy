@@ -58,6 +58,7 @@ fetch("shows.json", { cache: "no-cache" })
         '<span class="small">' + DAYS[d.getDay()] + (s.time ? " · " + timeLabel(s.time) : "") + "</span></div>" +
         '<div class="show-info"><h3>' + esc(s.title) + "</h3>" +
         "<p>" + esc(where) + (s.city ? " · " + esc(s.city) : "") + "</p>" +
+        (s.doors || s.presenter ? "<p>" + [s.doors ? "Doors " + timeLabel(s.doors) : "", s.presenter ? "Presented by " + esc(s.presenter) : ""].filter(Boolean).join(" · ") + "</p>" : "") +
         '<p class="sponsor-tag">Sponsored by <a href="https://www.belleeah.com" target="_blank" rel="noopener">Belleeah\'s Apples &amp; Treats</a></p></div>' +
         '<div class="show-cta">' + (s.tickets ? '<a class="btn solid" href="' + esc(s.tickets) + '" target="_blank" rel="noopener">Get Tickets</a>' : "") + "</div>" +
         "</article>";
@@ -74,6 +75,8 @@ fetch("shows.json", { cache: "no-cache" })
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": { "@type": "Place", "name": s.venue, "address": [s.address, s.city].filter(Boolean).join(", ") },
         "performer": { "@type": "Person", "name": "Chris Longoria" },
+        "organizer": s.presenter ? { "@type": "Organization", "name": s.presenter } : undefined,
+        "doorTime": s.doors ? s.date + "T" + s.doors + (s.utc_offset || "") : undefined,
         "sponsor": { "@type": "Organization", "name": "Belleeah's Apples & Treats", "url": "https://www.belleeah.com" }
       };
       if (s.tickets) ev.offers = { "@type": "Offer", "url": s.tickets, "availability": "https://schema.org/InStock" };
