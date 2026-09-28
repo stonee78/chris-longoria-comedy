@@ -34,7 +34,7 @@ def event(show):
             "address": ", ".join(x for x in (show.get("address"), show.get("city")) if x),
         },
         "performer": {"@id": "https://chrislongoriacomedy.com/#chris"},
-        "sponsor": {"@type": "Organization", "name": "Belleeah's Apples & Treats", "url": "https://www.belleeah.com"},
+        "sponsor": {"@type": "Organization", "name": "Belleeah's Apples & Treats", "url": "https://belleeah.com/"},
         "image": "https://chrislongoriacomedy.com/assets/og.jpg",
     }
     if show.get("doors"):

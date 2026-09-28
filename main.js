@@ -59,7 +59,7 @@ fetch("shows.json", { cache: "no-cache" })
         '<div class="show-info"><h3>' + esc(s.title) + "</h3>" +
         "<p>" + esc(where) + (s.city ? " · " + esc(s.city) : "") + "</p>" +
         (s.doors || s.presenter ? "<p>" + [s.doors ? "Doors " + timeLabel(s.doors) : "", s.presenter ? "Presented by " + esc(s.presenter) : ""].filter(Boolean).join(" · ") + "</p>" : "") +
-        '<p class="sponsor-tag">Sponsored by <a href="https://www.belleeah.com" target="_blank" rel="noopener">Belleeah\'s Apples &amp; Treats</a></p></div>' +
+        '<p class="sponsor-tag">Sponsored by <a href="https://belleeah.com/" target="_blank" rel="sponsored noopener">Belleeah\'s Apples &amp; Treats</a></p></div>' +
         '<div class="show-cta">' + (s.tickets ? '<a class="btn solid" href="' + esc(s.tickets) + '" target="_blank" rel="noopener">Get Tickets</a>' : "") + "</div>" +
         "</article>";
     }).join("");
