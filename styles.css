@@ -188,7 +188,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 28px; }
 .social a { color: var(--muted); text-decoration: none; font-weight: 600; }
 .social a:hover { color: var(--accent); }
 .footer-sponsor span { color: var(--muted); font-weight: 600; }
-.copy { text-align: center; color: #7d7390; font-size: .85rem; margin: 36px 0 0; }
+.copy { text-align: center; color: #9a90ad; font-size: .85rem; margin: 36px 0 0; }
 
 @media (max-width: 820px) {
   .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 36px; }
