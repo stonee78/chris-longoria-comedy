@@ -20,7 +20,15 @@ Add an entry to `shows.json` and push:
   "tickets": "https://..." }
 ```
 
-`time` is 24-hour local time. `utc_offset` is -05:00 while Daylight Saving Time is in effect and -06:00 after it ends.
+`time` and `doors` are 24-hour local time. `utc_offset` is -05:00 while Daylight Saving Time is in effect and -06:00 after it ends. `presenter` is optional.
+
+Then run `python tools/update_shows.py`. It writes the upcoming shows into `index.html` as ComedyEvent markup (search engines trust markup in the page itself more than markup added by a script) and bumps the sitemap date. Commit `shows.json`, `index.html` and `sitemap.xml` together. Rerun it now and then even without changes, so past shows drop out of the markup.
+
+## Search
+
+- `robots.txt` and `sitemap.xml` at the root.
+- Google Search Console: the URL-prefix property `https://chrislongoriacomedy.com/` is verified by the file `googleef0af64065cbc96b.html`. **Don't delete that file**, or verification is lost. It's owned by Belleeah's `jarvis-search-console` service account, with belleeah@gmail.com added as an owner.
+- Markup in `index.html`: WebSite, Person (`#chris`, with sameAs links to his profiles), FAQPage (matching the visible FAQ section), and the generated ComedyEvent block.
 
 ## Moving to chrislongoriacomedy.com
 

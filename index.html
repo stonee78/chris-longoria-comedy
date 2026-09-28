@@ -12,10 +12,18 @@
 <meta property="og:image" content="https://chrislongoriacomedy.com/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chris Longoria on the Kill Tony stage">
 <meta property="og:url" content="https://chrislongoriacomedy.com/">
+<meta property="og:site_name" content="Chris Longoria Comedy">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chris Longoria | Stand-Up Comedian">
+<meta name="twitter:description" content="Stand-up comedian from Corpus Christi, TX. As seen on Kill Tony. Host of the That Dude Talks podcast.">
+<meta name="twitter:image" content="https://chrislongoriacomedy.com/assets/og.jpg">
+<meta name="twitter:image:alt" content="Chris Longoria on the Kill Tony stage">
 <meta name="theme-color" content="#0d0b12">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -23,7 +31,17 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Chris Longoria Comedy",
+  "url": "https://chrislongoriacomedy.com/",
+  "about": { "@id": "https://chrislongoriacomedy.com/#chris" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://chrislongoriacomedy.com/#chris",
   "name": "Chris Longoria",
   "jobTitle": "Stand-up comedian",
   "description": "Stand-up comedian, podcast host and live comedy producer from Corpus Christi, Texas, seen on Kill Tony #770 and #777 and host of the That Dude Talks podcast.",
@@ -40,6 +58,64 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Who is Chris Longoria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Chris Longoria is a stand-up comedian, podcast host, and live comedy producer from Corpus Christi, Texas." } },
+    { "@type": "Question", "name": "Has Chris Longoria been on Kill Tony?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chris appeared on Kill Tony twice in 2026, on episode #770 (May 18, 2026) and episode #777 (July 21, 2026)." } },
+    { "@type": "Question", "name": "Where has Chris Longoria performed?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Chris has performed at some of the biggest comedy rooms in Texas, including Comedy Mothership, Houston Improv, and Hyena’s Comedy Club in Dallas and Fort Worth." } },
+    { "@type": "Question", "name": "What is That Dude Talks?",
+      "acceptedAnswer": { "@type": "Answer", "text": "That Dude Talks is Chris's podcast, featuring conversations with comedians, professional wrestlers, entertainers, and other interesting personalities. Past guests have included Sammy Guevara and Tay Melo. Episodes are on YouTube at @ChrisLongoriaComedy." } },
+    { "@type": "Question", "name": "What is Kiko's Comedy Nights?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Kiko's Comedy Nights is a monthly live comedy series in Corpus Christi, created and hosted by Chris, at Kiko's Mexican Food Restaurant & Cantina on Everhart Road." } },
+    { "@type": "Question", "name": "How do I book Chris Longoria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Email tdcdoescomedy@gmail.com with your date, venue, and details." } }
+  ]
+}
+</script>
+<!-- EVENTS-LD:START (generated from shows.json by tools/update_shows.py; do not edit by hand) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "ComedyEvent",
+    "name": "Kill Tony Killers at The Parish",
+    "startDate": "2026-10-24T20:30-05:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "The Parish",
+      "address": "1624 Buena Vista St., San Antonio, TX"
+    },
+    "performer": {
+      "@id": "https://chrislongoriacomedy.com/#chris"
+    },
+    "sponsor": {
+      "@type": "Organization",
+      "name": "Belleeah's Apples & Treats",
+      "url": "https://www.belleeah.com"
+    },
+    "image": "https://chrislongoriacomedy.com/assets/og.jpg",
+    "doorTime": "2026-10-24T20:00-05:00",
+    "organizer": {
+      "@type": "Organization",
+      "name": "BFR Productions"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://bfrproductions.com/comedy",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+]
+</script>
+<!-- EVENTS-LD:END -->
 </head>
 <body>
 
@@ -68,7 +144,7 @@
       </div>
     </div>
     <figure class="hero-photo">
-      <img src="assets/hero-kill-tony.jpg" width="1012" height="630" alt="Chris Longoria on stage at Kill Tony, with the panel behind him">
+      <img src="assets/hero-kill-tony.jpg" width="1012" height="630" fetchpriority="high" alt="Chris Longoria on stage at Kill Tony, with the panel behind him">
     </figure>
   </section>
 
@@ -188,6 +264,20 @@
       <div class="presented">
         <span>That Dude Talks is brought to you by</span>
         <a href="https://www.belleeah.com" target="_blank" rel="noopener" class="sponsor-logo"><img src="assets/belleeah-logo.png" width="325" height="184" alt="Belleeah's Apples &amp; Treats"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="band">
+    <div class="wrap narrow">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Who is Chris Longoria?</summary><p>Chris Longoria is a stand-up comedian, podcast host, and live comedy producer from Corpus Christi, Texas.</p></details>
+        <details><summary>Has Chris Longoria been on Kill Tony?</summary><p>Yes. Chris appeared on <em>Kill Tony</em> twice in 2026, on episode #770 (May 18, 2026) and episode #777 (July 21, 2026). Both sets are <a href="#kill-tony">above</a>.</p></details>
+        <details><summary>Where has Chris Longoria performed?</summary><p>Chris has performed at some of the biggest comedy rooms in Texas, including Comedy Mothership, Houston Improv, and Hyena’s Comedy Club in Dallas and Fort Worth.</p></details>
+        <details><summary>What is That Dude Talks?</summary><p><em>That Dude Talks</em> is Chris's podcast, featuring conversations with comedians, professional wrestlers, entertainers, and other interesting personalities. Past guests have included Sammy Guevara and Tay Melo. Episodes are on <a href="https://www.youtube.com/@ChrisLongoriaComedy/videos" target="_blank" rel="noopener">YouTube</a>.</p></details>
+        <details><summary>What is Kiko's Comedy Nights?</summary><p><em>Kiko's Comedy Nights</em> is a monthly live comedy series in Corpus Christi, created and hosted by Chris, at Kiko's Mexican Food Restaurant &amp; Cantina on Everhart Road.</p></details>
+        <details><summary>How do I book Chris Longoria?</summary><p>Email <a href="mailto:tdcdoescomedy@gmail.com">tdcdoescomedy@gmail.com</a> with your date, venue, and details.</p></details>
       </div>
     </div>
   </section>

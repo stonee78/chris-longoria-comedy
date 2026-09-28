@@ -63,29 +63,7 @@ fetch("shows.json", { cache: "no-cache" })
         '<div class="show-cta">' + (s.tickets ? '<a class="btn solid" href="' + esc(s.tickets) + '" target="_blank" rel="noopener">Get Tickets</a>' : "") + "</div>" +
         "</article>";
     }).join("");
-
-    // Event markup so search engines can list the dates directly in results.
-    var events = shows.map(function (s) {
-      var ev = {
-        "@context": "https://schema.org",
-        "@type": "ComedyEvent",
-        "name": s.title,
-        "startDate": s.date + (s.time ? "T" + s.time + (s.utc_offset || "") : ""),
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": { "@type": "Place", "name": s.venue, "address": [s.address, s.city].filter(Boolean).join(", ") },
-        "performer": { "@type": "Person", "name": "Chris Longoria" },
-        "organizer": s.presenter ? { "@type": "Organization", "name": s.presenter } : undefined,
-        "doorTime": s.doors ? s.date + "T" + s.doors + (s.utc_offset || "") : undefined,
-        "sponsor": { "@type": "Organization", "name": "Belleeah's Apples & Treats", "url": "https://www.belleeah.com" }
-      };
-      if (s.tickets) ev.offers = { "@type": "Offer", "url": s.tickets, "availability": "https://schema.org/InStock" };
-      return ev;
-    });
-    var tag = document.createElement("script");
-    tag.type = "application/ld+json";
-    tag.textContent = JSON.stringify(events);
-    document.head.appendChild(tag);
+    // Event markup for search engines lives in index.html itself (tools/update_shows.py).
   })
   .catch(function () {
     document.getElementById("show-list").innerHTML = '<p class="no-shows">Show dates are posted on Chris\'s Instagram.</p>';
