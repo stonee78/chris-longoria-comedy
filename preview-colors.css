@@ -1,0 +1,26 @@
+/* Color preview for Chris: palette from his lotería-card logo (parchment, ink brown, brick red, olive). Not live on the main page. */
+:root {
+  --bg: #efe4cf;
+  --band: #e5d6ba;
+  --panel: #f7efdf;
+  --line: #cdb993;
+  --text: #33271c;
+  --muted: #65533f;
+  --accent: #983726;
+  --neon: #6b7045;
+  --blush: #fbf6ec;
+  --rose: #86463a;
+}
+body { background: radial-gradient(ellipse at 50% 30%, #f4ead7 0%, #e9dcc2 100%) fixed; }
+.top { background: rgba(239, 228, 207, .95); border-bottom: 1px solid var(--line); }
+.top nav a { color: var(--text); }
+.top nav .nav-cta { color: #fbf6ec; }
+h1, h2 { color: var(--text); text-shadow: none; }
+.hero h1 { text-shadow: 0 2px 0 rgba(107, 112, 69, .25); }
+.btn:hover, .btn.solid, .top nav .nav-cta { color: #fbf6ec; }
+.hero-photo img, .hero img { box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(51, 39, 28, .28); }
+.about-text p, .faq details p { color: #3f3023; }
+.yt .play { background: rgba(51, 39, 28, .72); }
+.gallery figcaption { color: #fbf6ec; background: linear-gradient(transparent, rgba(51, 39, 28, .8)); }
+.copy { color: var(--muted); }
+.preview-badge { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 99; background: var(--neon); color: #fbf6ec; font: 700 .85rem/1 var(--body); padding: 9px 16px; border-radius: 999px; box-shadow: 0 6px 18px rgba(51, 39, 28, .3); }
