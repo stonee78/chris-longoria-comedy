@@ -1,6 +1,17 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "shows": [
+    {
+      "date": "2026-10-21",
+      "time": "20:00",
+      "doors": "18:00",
+      "utc_offset": "-05:00",
+      "title": "Wildside Wednesday with Hooter Moreno",
+      "venue": "Wildside",
+      "address": "399 W. San Antonio St.",
+      "city": "New Braunfels, TX",
+      "tickets": "https://piquetickets.com/shows/wildside-wednesday-with-hooter-moreno-11"
+    },
     {
       "date": "2026-10-24",
       "time": "20:30",
