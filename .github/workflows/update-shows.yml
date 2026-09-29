@@ -1,0 +1,30 @@
+name: Drop past shows from the event markup
+# Daily at 11:10 UTC (6:10 AM Central), so "today" matches Texas time. Reruns
+# tools/update_shows.py and commits only when the show markup in index.html
+# changed (a show passed); the sitemap date alone isn't worth a commit.
+on:
+  schedule:
+    - cron: "10 11 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/update_shows.py
+      - name: Commit if the show markup changed
+        run: |
+          if git diff --quiet -- index.html; then
+            git checkout -- sitemap.xml
+            echo "No show markup changes"
+            exit 0
+          fi
+          git config user.name "shows-sync"
+          git config user.email "belleeah@gmail.com"
+          git commit -am "Shows: drop past dates from the event markup"
+          git push
