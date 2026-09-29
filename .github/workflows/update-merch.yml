@@ -1,0 +1,23 @@
+name: Update merch from Big Cartel
+on:
+  schedule:
+    - cron: "15 13 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/update_merch.py
+      - name: Commit if the shop changed
+        run: |
+          if git diff --quiet; then echo "No merch changes"; exit 0; fi
+          git config user.name "merch-sync"
+          git config user.email "belleeah@gmail.com"
+          git commit -am "Merch: refresh from Big Cartel"
+          git push
