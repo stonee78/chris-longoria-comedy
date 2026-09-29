@@ -38,3 +38,8 @@ Then run `python tools/update_shows.py`. It writes the upcoming shows into `inde
 2. DNS at GoDaddy: A records for `@` pointing to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, plus a CNAME for `www` pointing to `stonee78.github.io`.
 3. In `index.html`, replace every `https://stonee78.github.io/chris-longoria-comedy/` with `https://chrislongoriacomedy.com/` and **delete the `noindex` line** (it keeps the preview out of Google so it can't compete with the real domain later).
 4. Once the certificate is issued, turn on "Enforce HTTPS" in Pages settings.
+
+## Merch (branch `merch`, waiting on Chris's Big Cartel inventory)
+- The Merch section in `index.html` is generated from Chris's Big Cartel shop by `tools/update_merch.py`, which reads the shop's public `products.json` (no login or key) and writes cards plus Product markup between the `MERCH:START` and `MERCH:END` markers. Checkout stays on Big Cartel.
+- `.github/workflows/update-merch.yml` runs it daily at 13:15 UTC (8:15 AM Central) and commits only when the shop changed. Scheduled workflows run only from the default branch, so nothing runs until `merch` is merged into `main`.
+- To go live: merge `merch` into `main`, push, then run the workflow once by hand (Actions, "Update merch from Big Cartel", Run workflow) to confirm it can push and that Pages redeploys.
