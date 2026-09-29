@@ -1,22 +1,33 @@
-// Click-to-load YouTube players: the page shows a thumbnail and only loads
-// YouTube's player when someone presses play, which keeps the page fast.
+// YouTube players. On computers the page shows a thumbnail and only loads the
+// player when someone clicks play, which keeps the page fast. Phones block a
+// video from starting with sound unless the tap lands on the player itself,
+// so there each clip becomes YouTube's real player, loaded lazily as it
+// scrolls into view: one tap plays it.
+function loadPlayer(btn, autoplay) {
+  var params = (autoplay ? "autoplay=1&" : "") + "rel=0&playsinline=1";
+  if (btn.dataset.start) params += "&start=" + btn.dataset.start;
+  var frame = document.createElement("iframe");
+  frame.src = "https://www.youtube-nocookie.com/embed/" + btn.dataset.id + "?" + params;
+  frame.title = btn.getAttribute("aria-label") || "YouTube video";
+  frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  frame.allowFullscreen = true;
+  if (!autoplay) frame.loading = "lazy";
+  // Swap the button for a plain box: some phone browsers (Safari especially)
+  // won't pass taps through a <button> to an iframe inside it.
+  var box = document.createElement("div");
+  box.className = btn.className;
+  box.setAttribute("style", btn.getAttribute("style") || "");
+  box.appendChild(frame);
+  btn.replaceWith(box);
+}
+
+var isPhone = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 document.querySelectorAll(".yt").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    var params = "autoplay=1&rel=0&playsinline=1";
-    if (btn.dataset.start) params += "&start=" + btn.dataset.start;
-    var frame = document.createElement("iframe");
-    frame.src = "https://www.youtube-nocookie.com/embed/" + btn.dataset.id + "?" + params;
-    frame.title = btn.getAttribute("aria-label") || "YouTube video";
-    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-    frame.allowFullscreen = true;
-    // Swap the button for a plain box: some phone browsers (Safari especially)
-    // won't pass taps through a <button> to an iframe inside it.
-    var box = document.createElement("div");
-    box.className = btn.className;
-    box.setAttribute("style", btn.getAttribute("style") || "");
-    box.appendChild(frame);
-    btn.replaceWith(box);
-  }, { once: true });
+  if (isPhone) {
+    loadPlayer(btn, false);
+  } else {
+    btn.addEventListener("click", function () { loadPlayer(btn, true); }, { once: true });
+  }
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
