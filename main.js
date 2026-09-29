@@ -9,8 +9,13 @@ document.querySelectorAll(".yt").forEach(function (btn) {
     frame.title = btn.getAttribute("aria-label") || "YouTube video";
     frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     frame.allowFullscreen = true;
-    btn.replaceChildren(frame);
-    btn.style.cursor = "default";
+    // Swap the button for a plain box: some phone browsers (Safari especially)
+    // won't pass taps through a <button> to an iframe inside it.
+    var box = document.createElement("div");
+    box.className = btn.className;
+    box.setAttribute("style", btn.getAttribute("style") || "");
+    box.appendChild(frame);
+    btn.replaceWith(box);
   }, { once: true });
 });
 
