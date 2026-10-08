@@ -30,6 +30,21 @@ document.querySelectorAll(".yt").forEach(function (btn) {
   }
 });
 
+// Menu button on narrow screens: opens every section link, and closes again
+// after a pick, a tap outside the bar, or Escape.
+var topBar = document.querySelector(".top");
+var navToggle = document.querySelector(".nav-toggle");
+function setMenu(open) {
+  topBar.classList.toggle("menu-open", open);
+  navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+}
+navToggle.addEventListener("click", function () { setMenu(!topBar.classList.contains("menu-open")); });
+document.querySelectorAll("#site-nav a").forEach(function (a) {
+  a.addEventListener("click", function () { setMenu(false); });
+});
+document.addEventListener("click", function (e) { if (!topBar.contains(e.target)) setMenu(false); });
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Show dates come from shows.json, so adding a show never means editing this page.

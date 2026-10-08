@@ -51,6 +51,37 @@ section { padding: 72px 0; scroll-margin-top: 64px; }
 .top nav a { color: var(--text); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; }
 .top nav a:hover { color: var(--text); }
 .top nav .nav-cta { color: var(--bg); background: var(--accent); padding: 7px 14px; border-radius: 999px; }
+.nav-wrap { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nav-toggle { display: none; font: 600 .95rem var(--body); color: var(--text); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.nav-toggle::after { content: " \25BE"; }
+.top.menu-open .nav-toggle::after { content: " \25B4"; }
+
+/* narrow screens: Book Chris stays in the bar, the Menu button opens every section */
+@media (max-width: 1024px) {
+  .nav-toggle { display: inline-block; }
+  .top nav a:not(.nav-cta) { display: none; }
+  .top.menu-open nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 20px 16px; overflow: visible;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(51, 39, 28, .12);
+  }
+  .top.menu-open nav a { display: block; padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+  .top.menu-open nav .nav-cta { margin-top: 12px; padding: 12px 14px; text-align: center; border-bottom: 0; }
+}
+/* small phones: tighten the bar so the name, Book Chris and Menu all fit */
+@media (max-width: 480px) {
+  .top { padding: 10px 12px; gap: 8px; }
+  .brand { font-size: 1.3rem; gap: 8px; }
+  .brand img { width: 32px; height: 32px; }
+  .nav-wrap { gap: 6px; }
+  .top nav .nav-cta { padding: 6px 11px; font-size: .85rem; }
+  .nav-toggle { padding: 5px 10px; font-size: .85rem; }
+  .nav-toggle::after, .top.menu-open .nav-toggle::after { content: none; }
+  .top.menu-open nav { padding: 6px 12px 14px; }
+}
 
 /* hero */
 .hero {
@@ -208,7 +239,6 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 28px; }
   .about-grid { grid-template-columns: 1fr; gap: 28px; }
   .about-photos { position: static; max-width: 520px; }
   .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
-  .top nav a:not(.nav-cta) { display: none; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
