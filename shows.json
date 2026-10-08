@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29",
+  "updated": "2026-10-07",
   "shows": [
     {
       "date": "2026-10-21",
@@ -11,6 +11,18 @@
       "address": "399 W. San Antonio St.",
       "city": "New Braunfels, TX",
       "tickets": "https://piquetickets.com/shows/wildside-wednesday-with-hooter-moreno-11"
+    },
+    {
+      "date": "2026-10-23",
+      "time": "19:30",
+      "doors": "18:00",
+      "utc_offset": "-05:00",
+      "title": "Kill Tony Killers: Headlined by Charlie Mac",
+      "presenter": "That Dude Talks",
+      "venue": "Kiko's Mexican Food Restaurant & Cantina",
+      "address": "5514 Everhart Rd.",
+      "city": "Corpus Christi, TX",
+      "tickets": "https://www.eventbrite.com/e/kill-tony-killers-headlined-by-charlie-mac-tickets-2003117023941"
     },
     {
       "date": "2026-10-24",
